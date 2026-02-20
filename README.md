@@ -35,3 +35,27 @@ Cómo ejecutar
      - Puerto del servidor (ej. `23000`).
      - Nombre de usuario (ej. `Ana`, `Juan`).
    - Escribir mensajes en la consola. Para desconectarse, escribir `salir`.
+
+## Estructura del proyecto
+
+A continuación se muestra la estructura principal del proyecto y una breve descripción de los archivos más relevantes:
+
+```text
+arswlab4CallReturn-RMI/
+├─ README.md                      # Documentación del proyecto
+├─ pom.xml (opcional)             # Archivo de construcción (si aplica)
+└─ src/
+   └─ main/
+      └─ java/
+         └─ arsw/
+            └─ demo/
+               ├─ EchoServer.java       # Interfaz remota (métodos RMI)
+               ├─ EchoServerImpl.java   # Implementación del servidor RMI
+               └─ EchoClient.java       # Cliente que se registra y recibe callbacks
+```
+
+Descripción breve de los elementos:
+- README.md: documentación y pasos para ejecutar el servidor y los clientes.
+- EchoServer.java: define los métodos remotos: enviarMensaje, registrarCliente y recibirMensaje.
+- EchoServerImpl.java: crea el registro RMI, publica el servicio `servidorChat`, mantiene listas de clientes y reenvía mensajes.
+- EchoClient.java: exporta el cliente como objeto remoto para callbacks, se registra en el servidor y permite enviar/recibir mensajes desde consola.
